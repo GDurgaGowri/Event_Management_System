@@ -28,15 +28,13 @@ class UserService @Autowired constructor(
 
     @Transactional
     fun createUser(user: User): User {
-        // You can add additional logic here, such as password encoding
-        return userRepository.save(user)
+         return userRepository.save(user)
     }
 
     @Transactional
     fun updateUser(id: Long, name: String?, password: String?, role: String?): User? {
         val existingUser = userRepository.findById(id).orElse(null) ?: return null
 
-        // Create a new user instance with updated fields
         val updatedUser = existingUser.copy(
             name = name ?: existingUser.name,
             password = password ?: existingUser.password,
