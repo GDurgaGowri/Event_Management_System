@@ -1,0 +1,239 @@
+Event
+mutation {
+  createEvent(
+    name: "Math Fun",
+    date: "2024-10-06T10:00:00",
+    location: { id: 1, name: "AV hall 4", address: "St Joseph college,Block 7,Omr road" },
+    organizer: { id: 1, name: "Amitha", contactInfo: "Amitha@gmail.com" }
+  ) {
+    id
+    name
+    date
+  }
+}
+mutation{
+  updateEvent(id:1,
+    name:"Conference 2023",
+    date:"2024-10-17T00:00:00",
+    organizer:{ id: 1, name: "Kumaran", contactInfo: "Kumar@gmail.com" },
+    location:{ id: 1, name: "AV hall 4", address: "St Joseph college,Block 7,Omr road" })
+  {
+    id
+    name
+   date
+  }
+}
+query {
+  allEvents {
+    id
+    name
+    date
+    location {
+      id
+      name
+      address
+    }
+    organizer {
+      id
+      name
+      contactInfo
+    }
+  }
+}
+query {
+  eventById(id: 1) {  # Replace '1' with the actual event ID
+    id
+    name
+    date
+    location {
+      id
+      name
+      address
+    }
+    organizer {
+      id
+      name
+      contactInfo
+    }
+  }
+}
+
+
+Organizer
+mutation {
+  createOrganizer(id: 8, name: "Sowmila", contactInfo: "Sowmila@example.com") {
+    id
+    name
+    contactInfo
+  }
+}
+mutation {
+    updateOrganizer(id: 8, name: "Sowmiyo", contactInfo: "Sowmiyo@example.com") {
+        id
+        name
+        contactInfo
+    }
+}
+query {
+  allOrganizers {
+    id
+    name
+    contactInfo
+  }
+}
+query {
+  organizerById(id: 1) {  # Replace '1' with the actual organizer ID
+    id
+    name
+    contactInfo
+  }
+}
+
+
+
+Location
+mutation {
+  createLocation(id: 6, name: "Auditorium 2", address: "St Joseph college,Block 7,Omr road") {
+    id
+    name
+    address
+  }
+}
+mutation {
+    updateLocation(id: 6, name: "Auditorium", address: "St Joseph college,Block 5,Omr road") {
+        id
+        name
+        address
+    }
+}
+query {
+  allLocations {
+    id
+    name
+    address
+  }
+}
+query {
+  locationById(id: 1) {  # Replace '1' with the actual location ID
+    id
+    name
+    address
+  }
+}
+
+Registration
+mutation {
+  registerUser(
+    eventId: 6,             # Replace with an actual event ID from your database
+    userName: "July",    # Example user name
+    userEmail: "July@example.com"  # Example email
+  ) {
+    id
+    userName
+    userEmail
+    registrationDate
+    event {
+      id
+      name
+    }
+  }
+}
+mutation {
+  updateRegistration(
+    id: 1,                  # Replace with the actual registration ID
+    userName: "Jane Doee",    # New user name
+    userEmail: "jane.doe@example.com"  # New email
+  ) {
+    id
+    userName
+    userEmail
+    registrationDate
+    event {
+      id
+      name
+    }
+  }
+}
+query {
+  allRegistrations {
+    id
+    event {
+      id
+      name
+    }
+    userName
+    userEmail
+    registrationDate
+  }
+}
+
+Feedback
+mutation {
+    submitFeedback(eventId: 3, comments: "Very Fun to participate!", rating: 4) {
+        id
+        comments
+        rating
+    }
+}
+mutation {
+    updateFeedback(id: 1, comments: "Great!", rating: 4) {
+        id
+        comments
+        rating
+    }
+}
+query {
+    allFeedback {
+        id
+        comments
+        rating
+    }
+}
+
+USER
+mutation {
+    createUser(name: "Ashwi", password: "ash123", role: "ORGANIZER") {
+        id
+        name
+        role
+    }
+}
+mutation {
+    updateUser(id: 2, name: "sowmi") {
+        id
+        name
+        role
+    }
+}
+query {
+    getAllUsers {
+        id
+        name
+        role
+    }
+}
+query{
+  getUser(id: 1) {
+        id
+        name
+        role
+  }
+}
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
