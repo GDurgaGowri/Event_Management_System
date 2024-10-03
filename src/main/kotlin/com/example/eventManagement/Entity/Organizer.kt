@@ -7,7 +7,7 @@ import jakarta.validation.constraints.NotNull
 @Table(name = "organizer")
 data class Organizer(
     @Id
-    val id: Long, // Make sure this is not auto-generated
+    val id: Long, 
 
     @field:NotNull
     @Column(nullable = false)
