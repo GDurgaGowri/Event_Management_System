@@ -36,8 +36,8 @@ class EventResolver @Autowired constructor(
     fun createEvent(
         @Argument name: String,
         @Argument date: String,
-        @Argument location: Location,   // Accept LocationInput
-        @Argument organizer: Organizer   // Accept OrganizerInput
+        @Argument location: Location,   
+        @Argument organizer: Organizer   
     ): Event {
         val location = Location(
             id = location.id,
@@ -73,8 +73,8 @@ class EventResolver @Autowired constructor(
         @Argument id: Long,
         @Argument name: String?,
         @Argument date: String?,
-        @Argument location: Location?,  // Accept LocationInput
-        @Argument organizer: Organizer?   // Accept OrganizerInput
+        @Argument location: Location?,  
+        @Argument organizer: Organizer?   
     ): Event {
         val event = eventService.getEventById(id) ?: throw NoSuchElementException("Event with ID $id not found")
 
