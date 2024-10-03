@@ -42,7 +42,7 @@ class LocationService(private val locationRepository: LocationRepository,private
             throw IllegalArgumentException("A location with the same name and address already exists.")
         }
 
-        return locationRepository.save(updatedLocation.copy(id = id)) // Ensure the id is preserved
+        return locationRepository.save(updatedLocation.copy(id = id)) 
     }
 
     fun deleteLocation(id: Long): Boolean {
@@ -50,8 +50,6 @@ class LocationService(private val locationRepository: LocationRepository,private
         if (!locationRepository.existsById(id)) {
             throw NoSuchElementException("Location with ID $id not found.")
         }
-
-        // Check if there are any events associated with this location
 
         val events = eventRepository.findByLocationId(id)
         return if (events.isEmpty()) {
