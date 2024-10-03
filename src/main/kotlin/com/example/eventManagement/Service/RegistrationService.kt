@@ -29,7 +29,6 @@ class RegistrationService(
     fun createRegistration(eventId: Long, userName: String, userEmail: String): Registration {
         val event = eventRepository.findById(eventId).orElseThrow { Exception("Event not found") }
 
-        // Check for existing registration
         if (registrationRepository.existsByEventAndUserNameAndUserEmail(event, userName, userEmail)) {
             throw IllegalArgumentException("User with name $userName and email $userEmail is already registered for this event.")
         }
@@ -41,7 +40,6 @@ class RegistrationService(
     fun updateRegistration(id: Long, userName: String?, userEmail: String?): Registration? {
         val registration = registrationRepository.findById(id).orElse(null) ?: return null
 
-        // Check for existing registration with same name and email
         if ((userName != null || userEmail != null) && registrationRepository.existsByEventAndUserNameAndUserEmail(
                 registration.event, userName ?: registration.userName, userEmail ?: registration.userEmail)) {
             throw IllegalArgumentException("User with the same name and email is already registered for this event.")
