@@ -44,20 +44,6 @@ src
     └── kotlin
         └── com.example.eventManagement # Unit and integration tests
 ```
-## API Endpoints
-
-### REST Endpoints
-
-- `GET /events`: Retrieve all events.
-- `GET /events/{id}`: Retrieve an event by ID.
-- `POST /events`: Create a new event.
-- `PUT /events/{id}`: Update an existing event.
-- `DELETE /events/{id}`: Delete an event by ID.
 
 ### GraphQL Queries & Mutations
-
-- `allEvents`: Retrieve all events.
-- `eventById(id: ID!)`: Retrieve an event by ID.
-- `createEvent(name: String!, date: String!, locationId: ID!, organizerId: ID!)`: Create a new event.
-- `updateEvent(id: ID!, name: String, date: String, locationId: ID, organizerId: ID)`: Update an existing event.
-- `deleteEvent(id: ID!)`: Delete an event by ID.
+query_and_mutation.txt contains all query and mutation to run in graphql
