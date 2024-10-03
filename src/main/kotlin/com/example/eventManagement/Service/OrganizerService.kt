@@ -47,7 +47,7 @@ class OrganizerService(private val organizerRepository: OrganizerRepository,priv
         val events = eventRepository.findByOrganizerId(id)
         return if (events.isEmpty()) {
             organizerRepository.deleteById(id)
-            true  // Return true on successful deletion
+            true  
         } else {
             throw Exception("Cannot delete organizer with existing events.")
         }
