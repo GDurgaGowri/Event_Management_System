@@ -16,8 +16,8 @@ class EventController(private val eventService: EventService) {
                     <h2>Event Management API Endpoints</h2>
                     <ul>
                         <li><a href="/events">Retrieve all events (GET)</a></li>
-                        <li><a href="/organizers">Retrieve all organizers (GET)</a></li>
-                        <li><a href="/locations">Retrieve all locations (GET)</a></li>
+                        <li><a href="/organizer">Retrieve all organizers (GET)</a></li>
+                        <li><a href="/location">Retrieve all locations (GET)</a></li>
                         <li><a href="/graphiql">GraphiQL interface for testing GraphQL queries</a></li>
                     </ul>
                 </body>
