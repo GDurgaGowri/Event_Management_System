@@ -1,0 +1,101 @@
+databaseChangeLog:
+  - changeSet:
+      id: "10"
+      author: "root"
+      changes:
+        - insert:
+            tableName: "organizer"
+            columns:
+              - column:
+                  name: "name"
+                  value: "John Doe"
+              - column:
+                  name: "contact_info"
+                  value: "john.doe@example.com"
+
+  - changeSet:
+      id: "11"
+      author: "root"
+      changes:
+        - insert:
+            tableName: "organizer"
+            columns:
+              - column:
+                  name: "name"
+                  value: "Jane Smith"
+              - column:
+                  name: "contact_info"
+                  value: "jane.smith@example.com"
+
+  - changeSet:
+      id: "12"
+      author: "root"
+      changes:
+        - insert:
+            tableName: "location"
+            columns:
+              - column:
+                  name: "name"
+                  value: "Conference Hall A"
+              - column:
+                  name: "address"
+                  value: "123 Main St, Springfield"
+
+  - changeSet:
+      id: "13"
+      author: "root"
+      changes:
+        - insert:
+            tableName: "location"
+            columns:
+              - column:
+                  name: "name"
+                  value: "Auditorium B"
+              - column:
+                  name: "address"
+                  value: "456 Market St, Metropolis"
+  - changeSet:
+      id: "14"
+      author: "root"
+      changes:
+        - update:
+            tableName: "organizer"
+            where: "id = 1"  # specify the record to update using a condition
+            columns:
+              - column:
+                  name: "name"
+                  value: "Johnathan Doe"  # new value
+
+  - changeSet:
+      id: "15"
+      author: "root"
+      changes:
+        - update:
+            tableName: "location"
+            where: "id = 1"  # specify the record to update using a condition
+            columns:
+              - column:
+                  name: "address"
+                  value: "789 New Street, Springfield"  # new value
+  - changeSet:
+      id: "16"
+      author: "root"
+      changes:
+        - delete:
+            tableName: "organizer"
+            where: "name = 'Jane Smith'"
+
+  - changeSet:
+      id: "17"
+      author: "root"
+      changes:
+        - delete:
+            tableName: "location"
+            where: "name = 'Auditorium B'"
+#  - changeSet:
+#      id: "17"
+#      author: "root"
+#      changes:
+#        - delete:
+#            tableName: "location"
+#            where: "name = 'Auditorium C'"

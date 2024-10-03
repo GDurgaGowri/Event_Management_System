@@ -1,0 +1,59 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: "Durgagowri g"
+      changes:
+        - createTable:
+            tableName: users
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  constraints:
+                    primaryKey: true
+                    autoIncrement: true
+              - column:
+                  name: name
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: password
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: role
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+
+  - changeSet:
+      id: 3
+      author: your_name
+      changes:
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: name
+                  value: 'dg'
+              - column:
+                  name: password
+                  value: 'dg123'
+              - column:
+                  name: role
+                  value: 'ORGANIZER'
+
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: name
+                  value: 'user1'
+              - column:
+                  name: password
+                  value: 'userpass123'
+              - column:
+                  name: role
+                  value: 'USER'

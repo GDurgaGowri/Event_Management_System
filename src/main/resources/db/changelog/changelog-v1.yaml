@@ -1,0 +1,20 @@
+databaseChangeLog:
+  - changeSet:
+      id: "10"
+      author: "root"
+      changes:
+        - insert:
+            tableName: "events"
+            columns:
+              - column:
+                  name: "name"
+                  value: "Conference 2023"
+              - column:
+                  name: "date"
+                  value: "2024-10-15 09:00:00"
+              - column:
+                  name: "location_id"
+                  value: "1"
+              - column:
+                  name: "organizer_id"
+                  value: "2"

@@ -1,0 +1,80 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2024-10-1-create-registrations
+      author: root
+      changes:
+        - createTable:
+            tableName: registrations
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: event_id
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: user_name
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: user_email
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: registration_date
+                  type: date
+                  constraints:
+                    nullable: false
+        - addForeignKeyConstraint:
+            baseTableName: registrations
+            baseColumnNames: event_id
+            referencedTableName: events
+            referencedColumnNames: id
+            constraintName: fk_event
+  - changeSet:
+      id: 2024-10-1-insert-registrations
+      author: root
+      changes:
+        - insert:
+            tableName: registrations
+            columns:
+              - column:
+                  name: id
+                  valueNumeric: 1
+              - column:
+                  name: event_id
+                  valueNumeric: 2 # Change to actual event ID
+              - column:
+                  name: user_name
+                  value: John Doe
+              - column:
+                  name: user_email
+                  value: john.doe@example.com
+              - column:
+                  name: registration_date
+                  valueDate: 2024-09-30
+        - insert:
+            tableName: registrations
+            columns:
+              - column:
+                  name: id
+                  valueNumeric: 2
+              - column:
+                  name: event_id
+                  valueNumeric: 2 # Change to actual event ID
+              - column:
+                  name: user_name
+                  value: Jane Smith
+              - column:
+                  name: user_email
+                  value: jane.smith@example.com
+              - column:
+                  name: registration_date
+                  valueDate: 2024-09-30

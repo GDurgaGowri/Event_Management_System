@@ -1,0 +1,135 @@
+type Event {
+    id: ID!
+    name: String!
+    date: String!
+    location: Location!
+    organizer: Organizer!
+}
+
+type Organizer {
+    id: ID!
+    name: String!
+    contactInfo: String!
+}
+
+type Location {
+    id: ID!
+    name: String!
+    address: String!
+}
+
+type Registration {
+    id: ID!
+    event: Event!
+    userName: String!
+    userEmail: String!
+    registrationDate: String!
+}
+
+type Feedback {
+    id: ID!
+    event: Event!
+    comments: String!
+    rating: Int!
+    feedbackDate: String!
+}
+
+type User {
+    id: ID!
+    name: String!
+    password: String!
+    role: String!
+}
+
+type Query {
+    allEvents: [Event]
+    eventById(id: ID!): Event
+
+    allOrganizers: [Organizer]
+    organizerById(id: ID!): Organizer
+
+    allLocations: [Location]
+    locationById(id: ID!): Location
+
+    allRegistrations: [Registration!]!
+    registrationById(id: ID!): Registration
+    registrationsForEvent(eventId: ID!): [Registration!]!
+
+    allFeedback: [Feedback!]!
+    feedbackById(id: ID!): Feedback
+    feedbackForEvent(eventId: ID!): [Feedback!]!
+
+    getUser(id: ID!): User
+    getAllUsers: [User]
+}
+
+type Mutation {
+    createEvent(
+        name: String!,
+        date: String!,
+        location: LocationInput!,
+        organizer: OrganizerInput!
+    ): Event
+
+    updateEvent(
+        id: ID!,
+        name: String,
+        date: String,
+        location: LocationInput,
+        organizer: OrganizerInput
+    ): Event
+
+    deleteEvent(id: ID!): String
+
+    createOrganizer(
+        id : ID!
+        name: String!,
+        contactInfo: String!
+    ): Organizer
+
+    updateOrganizer(
+        id: ID!,
+        name: String,
+        contactInfo: String
+    ): Organizer
+
+    deleteOrganizer(id: ID!): String
+
+    createLocation(
+        id : ID!
+        name: String!,
+        address: String
+    ): Location
+
+    updateLocation(
+        id: ID!,
+        name: String,
+        address: String
+    ): Location
+
+    deleteLocation(id: ID!): String
+
+    registerUser(eventId: ID!, userName: String!, userEmail: String!): Registration!
+    updateRegistration(id: ID!, userName: String, userEmail: String): Registration
+    deleteRegistration(id: ID!): String
+
+    submitFeedback(eventId: ID!, comments: String!, rating: Int!): Feedback!
+    updateFeedback(id: ID!, comments: String, rating: Int): Feedback!
+    deleteFeedback(id: ID!): String!
+
+    createUser(name: String!, password: String!, role: String!): User
+    updateUser(id: ID!, name: String, password: String, role: String): User
+    deleteUser(id: ID!): Boolean
+}
+
+input LocationInput {
+    id :ID!
+    name: String!
+    address: String!
+}
+
+input OrganizerInput {
+    id: ID!
+    name: String!
+    contactInfo: String!
+}
