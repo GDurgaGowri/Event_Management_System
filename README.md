@@ -2,11 +2,11 @@
 
 ## Overview
 
-The **University Event Management System** is a comprehensive application designed to manage university events efficiently. It provides functionalities for creating, updating, and deleting events, as well as managing locations and organizers. The system leverages modern technologies and frameworks to ensure a scalable, secure, and user-friendly experience.
+The **University Event Management System** is a comprehensive application designed to manage university events efficiently. It provides functionalities for creating, updating, and deleting events and registrations, as well as managing locations, organizers, Feedback and users. The system leverages modern technologies and frameworks to ensure a scalable, secure, and user-friendly experience.
 
 ## Features
 
-- **CRUD Operations:** Perform create, read, update, and delete operations on Events, Organizers, and Locations.
+- **CRUD Operations:** Perform create, read, update, and delete operations on Events, Registrations, Users, Organizers, Locations and feedback.
 - **GraphQL API:** Flexible querying and mutation capabilities using GraphQL.
 - **REST API:** Standard RESTful endpoints for integration.
 - **Spring Security:** Secure API access with role-based authorization.
